@@ -41,17 +41,16 @@ defaults(
 id("Jorge".to_string()),
 family_names(vec ! ["Rico", "Vivas"])
 ),
-error_enum_metadata(# [derive(Debug)]),
+error_enum_metadata(# [derive(Debug, PartialEq)]),
 error_enum_named(GetWithAgeAndNameError),
 )]
-
-#[derive(From, Debug)]
+#[derive(From, Debug, PartialEq)]
 pub struct CharacterInfo {
     age: u8,
     name: &'static str,
     #[no_from("Jorge".to_string())]
     id: String,
-    #[no_from(vec!["Rico", "Vivas"])]
+    #[no_from(vec ! ["Rico", "Vivas"])]
     family_names: Vec<&'static str>,
     #[no_from]
     appeared_in_movies: u8,
@@ -119,16 +118,35 @@ impl<Ok, InternalError, ExternalError> FlattenError<Ok, InternalError, ExternalE
     }
 }
 
-
 #[test]
 fn test() {
+    assert_eq!(
+        CharacterInfo::from((23, "Jorge")),
+        CharacterInfo { age: 23, name: "Jorge", id: "Jorge".to_string(), family_names: vec!["Rico", "Vivas"], appeared_in_movies: 0 }
+    );
+
+    assert_eq!(
+        CharacterInfo::try_with_age_and_name(2003, "Jorge"),
+        Err(GetWithAgeAndNameError::AgeError(u8::try_from(2003).unwrap_err()))
+    );
+
     let error =
         std::fs::read_to_string("").map(|_| std::fs::read_to_string("").map(|_| std::fs::read_to_string("")))
             .flatten_err::<MyNumErrors>().flatten_err_ext();
-    let error_2 = std::fs::read_to_string("").expect_err("");
-    let error_3 = std::fs::read_to_string("").expect_err("");
-    println!("{error:#?}");
-    println!("{:#?}", MyError::from((error_2, error_3)));
-    println!("{:?}", CharacterInfo::from((23, "Jorge")));
-    println!("{:?}", CharacterInfo::try_with_age_and_name(2003, "Jorge"));
+
+    let is_io_error = match error.unwrap_err() {
+        MyNumErrors::IO(_) => true,
+        _ => false,
+    };
+
+    assert!(is_io_error);
+
+    let my_two_errors_is_two_errors = match MyError::from((
+        std::fs::read_to_string("").expect_err(""),
+        std::fs::read_to_string("").expect_err("")
+    )) {
+        MyError::MyTwoIo { .. } => true,
+        _ => false,
+    };
+    assert!(my_two_errors_is_two_errors);
 }

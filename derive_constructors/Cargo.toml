@@ -1,18 +1,12 @@
 [package]
-#Name of your crate
 name = "derive_constructors"
 version = "1.0.0"
 edition = "2021"
-#Author of this create
 authors = ["Jorge Rico Vivas <jorgericoinformatic@gmail.com>"]
-#Short description for your crate, like "This crate allows you to associate values to each variant on an enum"
-description = ""
-#Indiate your repository URL
-repository = "https://github.com/JorgeRicoVivas/my_crate_s_name"
-#Write at most 5 features, like ["useful", "crate"]
-keywords = []
-#Write at most 5 categoires, like ["no-std", "no-std::no-alloc", "rust-patterns"]
-categories = []
+description = "Deriving From, TryFrom and create new_with_*args* functions."
+repository = "https://github.com/JorgeRicoVivas/derive_constructors"
+keywords = ["constructor","derive","from","tryfrom"]
+categories = ["rust-patterns"]
 license-file = "../LICENSE"
 readme = "../README.md"
 
