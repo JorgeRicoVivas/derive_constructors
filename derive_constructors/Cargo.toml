@@ -1,6 +1,6 @@
 [package]
 name = "derive_constructors"
-version = "1.0.0"
+version = "1.0.1"
 edition = "2021"
 authors = ["Jorge Rico Vivas <jorgericoinformatic@gmail.com>"]
 description = "Deriving From, TryFrom and create new_with_*args* functions."

@@ -1,4 +1,4 @@
-[![crates.io](https://img.shields.io/crates/v/derive_constructors.svg)](https://crates.io/crates/derive_constructors)
+[![crates.io](https://img.shields.io/crates/v/derive_constructors)](https://crates.io/crates/derive_constructors)
 [![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/JorgeRicoVivas/derive_constructors/rust.yml)](https://github.com/JorgeRicoVivas/derive_constructors/actions)
 [![docs.rs](https://img.shields.io/docsrs/derive_constructors)](https://docs.rs/derive_constructors/latest/derive_constructors/)
 [![GitHub License](https://img.shields.io/github/license/JorgeRicoVivas/derive_constructors)](https://github.com/JorgeRicoVivas/derive_constructors/blob/main/LICENSE)
