@@ -111,7 +111,7 @@ impl TryFromInfo {
         (error_types, try_from_types)
     }
 
-    pub(crate) fn new(name: &Ident, attrs: &Vec<Attribute>, fields_names: &Vec<Ident>) -> TryFromInfo {
+    pub(crate) fn new_from_derive_data_struct(name: &Ident, attrs: &Vec<Attribute>, fields_names: &Vec<Ident>) -> TryFromInfo {
         let error_enum_metadata: proc_macro2::TokenStream = find_attribute(&attrs, "enum_error_meta")
             .map(|attribute| extract_token_stream_of_attribute(attribute)
                 .expect_else(|| "Could not parse content of the #[enum_error_meta] attribute"))

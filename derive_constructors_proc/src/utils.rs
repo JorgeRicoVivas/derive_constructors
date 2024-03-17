@@ -11,9 +11,9 @@ pub(crate) fn print_info<TNameRet, TInfoRet, TName, TInfo>(_name: TName, _info: 
           TName: FnOnce() -> TNameRet,
           TInfo: FnOnce() -> TInfoRet
 {
-    eprintln!("--------------------- {} ---------------------\n", (_name()).to_string());
-    eprintln!("{}\n", (_info()).to_string());
-    eprintln!("-------------------------------------------------------------\n");
+    //eprintln!("--------------------- {} ---------------------\n", (_name()).to_string());
+    //eprintln!("{}\n", (_info()).to_string());
+    //eprintln!("-------------------------------------------------------------\n");
 }
 
 pub(crate) trait ExpectElseResult<T, E> {

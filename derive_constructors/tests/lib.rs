@@ -2,6 +2,7 @@
 
 use std::io;
 use std::convert::Infallible;
+use std::net::{AddrParseError, IpAddr};
 use std::num::TryFromIntError;
 
 extern crate derive_constructors_proc;
