@@ -3,7 +3,7 @@
 //! [![docs.rs](https://img.shields.io/docsrs/derive_constructors)](https://docs.rs/derive_constructors/latest/derive_constructors/)
 //! [![GitHub License](https://img.shields.io/github/license/JorgeRicoVivas/derive_constructors)](https://github.com/JorgeRicoVivas/derive_constructors/blob/main/LICENSE)
 //!
-//! > *You are reading the documentation for derive_constructors version 1.0.0*
+//! > *You are reading the documentation for derive_constructors version 1.0.1*
 //!
 //! Allows to derive multiple constructor functions and implement the [From] and [TryFrom] traits
 //! for a struct by giving simple information such as their field's names.
